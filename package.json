@@ -13,16 +13,8 @@
     "data:destroy": "node backend/seeder -d",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MdnDev/LightMultiService.git"
-  },
   "author": "Wilfried Maudon",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MdnDev/LightMultiService/issues"
-  },
-  "homepage": "https://github.com/MdnDev/LightMultiService#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
