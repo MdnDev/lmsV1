@@ -22,9 +22,11 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.send('API is running')
-})
+if(process.env.NODE_ENV === 'development'){
+    app.use(morgan('dev'))
+}
+
+
 
 app.get('/api/clients', (req, res) => {
     res.json(clients)
@@ -42,6 +44,20 @@ app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 const __dirname2 = path.resolve()
 app.use('/uploadsAccessories', express.static(path.join(__dirname2, '/uploadsAccessories')))
+
+if(process.env.NODE_ENV === 'production'){
+    console.log('hellobbbbb')
+
+    app.use(express.static(path.join(__dirname, '/frontend/build')))
+    app.use(express.static(path.join(__dirname2, '/frontend/build')))
+
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')))
+} else {
+    console.log('hello')
+    app.get('/', (req, res) => {
+        res.send('APInnnnnnn is running...')
+    });
+}
 
 
 app.use(notFound);
