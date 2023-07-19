@@ -7,10 +7,6 @@
 
 /backend/data/users.js
 
-*.png
-*.jpg
-*jpg
-
 # testing
 /coverage
 
