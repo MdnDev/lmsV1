@@ -39,7 +39,7 @@ app.use("/api/uploadAccessories", uploadAccessoryRoutes);
 
 const __dirname = path.resolve();
 
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 // const __dirname2 = path.resolve();
 // app.use(
@@ -47,20 +47,20 @@ app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 //   express.static(path.join(__dirname2, "/uploadsAccessories"))
 // );
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/frontend/build")));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
 //   app.use(express.static(path.join(__dirname2, "/frontend/build")));
 
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
   );
 
 //   app.get("*", (req, res) =>
 //     res.sendFile(path.resolve(__dirname2, "frontend", "build", "index.html"))
 //   );
 } else {
-  app.get("/", (req, res) => {
-    res.send("APInnnnnnn is running...");
+  app.get('/', (req, res) => {
+    res.send('API is running...');
   });
 }
 
