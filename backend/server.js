@@ -48,10 +48,10 @@ app.use('/uploadsAccessories', express.static(path.join(__dirname2, '/uploadsAcc
 if(process.env.NODE_ENV === 'production'){
     console.log('hellobbbbb')
 
-    app.use(express.static(path.join(__dirname, '/frontend/build')))
-    app.use(express.static(path.join(__dirname2, '/frontend/build')))
+    app.use(express.static(path.join(__dirname, __dirname2, '/frontend/build')))
+    // app.use(express.static(path.join(__dirname2, '/frontend/build')))
 
-    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')))
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, __dirname2, 'frontend', 'build', 'index.html')))
 } else {
     console.log('hello')
     app.get('/', (req, res) => {
